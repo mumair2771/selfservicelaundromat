@@ -10,9 +10,7 @@ export default function Services() {
           <span className="text-[#8AA8CF]">of services</span>
         </h2>
         <p className="mt-6 max-w-3xl mx-auto text-[#26415E] text-xl leading-relaxed">
-          Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit
-          phasellusolm mollis sit aliquam sit nullam neque ultrices dolor sit
-          amet conse.
+          Complete laundry solutions for every fabric and occasion. Professional care that handles all your cleaning needs with expertise you can trust.
         </p>
       </div>
 
@@ -22,8 +20,7 @@ export default function Services() {
           <Image src="/services/1.png" width={112} height={112} alt="Wash service" />
           <h3 className="mt-6 text-2xl font-bold text-[#0B1B32]">Wash Service</h3>
           <p className="mt-3 text-[#26415E] text-lg">
-            Ultricies posuere quisque sollicitudin ut senectus nascetur semper
-            turpism sem turpis dictumst habitant enim.
+            Clothes deserve more than just a rinse. Our wash service gives them a deep clean that feels fresh, gentle, and reliable every single time.
           </p>
         </div>
 
@@ -32,8 +29,7 @@ export default function Services() {
           <Image src="/services/2.png" width={112} height={112} alt="Spin dry" />
           <h3 className="mt-6 text-2xl font-bold text-[#0B1B32]">Spin Dry</h3>
           <p className="mt-3 text-[#26415E] text-lg">
-            Tincidunt magna luctus porta egestas morbi commodo nullam mauris enim
-            pretium ante lacus morbi id viverra.
+            Say goodbye to heavy, dripping clothes. Our spin dry makes laundry lighter, faster, and easier to handle.
           </p>
         </div>
 
@@ -42,8 +38,7 @@ export default function Services() {
           <Image src="/services/3.png" width={112} height={112} alt="Fold service" />
           <h3 className="mt-6 text-2xl font-bold text-[#0B1B32]">Fold Service</h3>
           <p className="mt-3 text-[#26415E] text-lg">
-            Quam quis aliquet facilisis amet feugiat a sit adipiscing morbi sociis
-            dapibus amet pellentesque.
+            Nothing feels better than neatly folded clothes. We return your laundry crisp, organized, and ready to wear.
           </p>
         </div>
 
@@ -52,8 +47,7 @@ export default function Services() {
           <Image src="/services/4.png" width={112} height={112} alt="Heat dry" />
           <h3 className="mt-6 text-2xl font-bold text-[#0B1B32]">Heat Dry</h3>
           <p className="mt-3 text-[#26415E] text-lg">
-            Vitae nulla lectus ac nisi aliquet semper pulvinar quam arcu tortor
-            tristique tortor congue ut fringilla.
+            Warm, soft, and perfectly dry. Our heat dry leaves your clothes fresh and comfortable straight from the machine.
           </p>
         </div>
 
@@ -62,8 +56,7 @@ export default function Services() {
           <Image src="/services/5.png" width={112} height={112} alt="Stain removal" />
           <h3 className="mt-6 text-2xl font-bold text-[#0B1B32]">Stain Removal</h3>
           <p className="mt-3 text-[#26415E] text-lg">
-            Leo eu habitant luctus nisl ornareolme dictum mauris nibh ornare
-            ultrices quis cras odio viverra tortor risus dia.
+            Spills and stains happen. We carefully treat each piece to bring back the best in your favorite clothes.
           </p>
         </div>
 
@@ -72,8 +65,7 @@ export default function Services() {
           <Image src="/services/6.png" width={112} height={112} alt="Self laundry service" />
           <h3 className="mt-6 text-2xl font-bold text-[#0B1B32]">Self Laundry Service</h3>
           <p className="mt-3 text-[#26415E] text-lg">
-            Sem pharetra vel non tellus arcu aliquet leo in bibendum ac velit
-            tristique fermentum lacus est purus.s
+            Your laundry, your way. Use our modern machines for a quick and easy wash and dry, all in under an hour.
           </p>
         </div>
       </div>

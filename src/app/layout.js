@@ -2,6 +2,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import WhatsAppChat from "@/components/WhatsApp";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -21,9 +22,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${roboto.variable} font-sans antialiased`}
       >
-        <Navbar />
-        {children}
-        <WhatsAppChat />
+        <SmoothScroll>
+          <Navbar />
+          {children}
+          <WhatsAppChat />
+        </SmoothScroll>
       </body>
     </html>
   );

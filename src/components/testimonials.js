@@ -5,27 +5,27 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      image: "/testimonials/1.webp",
+      image: "/testimonials/1.jpeg",
       rating: 5,
-      text: "Ac ridiculus ultrices dolor amet quam ornare ultrices vitae tortor. Metus, donec facilisis porttitor integerdomer egestas felis condimentum.",
-      name: "John Carter",
-      location: "Los Angeles, CA"
+      text: "Today, I visited their new branch near johar town. It's really worth the time, especially for outsiders. Prices are reasonable and staff is really good. I wish I had known about this service before.",
+      name: "Sanan Ali",
+      location: "Lahore, Pakistan"
     },
     {
       id: 2,
       image: "/testimonials/2.webp",
       rating: 5,
-      text: "Metus, donec facilisis porttitorinteger domer egestas felis condime ntumac ridiculus ultrices dolor amet quam ornare ultrices vitae felis ac.",
-      name: "Sophie Moore",
-      location: "Los Angeles, CA"
+      text: "Excellent laundromat with automatic, modern, clean washing machines. And above all, they have a real heat dryer! They also provide good liquid detergents and fabric softeners. Very reasonable prices too!",
+      name: "Aun R",
+      location: "Lahore, Pakistan"
     },
     {
       id: 3,
-      image: "/testimonials/3.webp",
+      image: "/testimonials/3.jpeg",
       rating: 5,
-      text: "Integerdomer egestas felis condimen tumac ridiculus ultrices dolor amet quam ornare ultrices vitae tortormet tusdonec facilisis porttitor felis dolor.",
-      name: "Matt Cannon",
-      location: "Los Angeles, CA"
+      text: "I've visited this laundry service twice now, and each time I was thoroughly impressed by the quality of service, the range of products, and the state-of-the-art machines they use. The end result of my washed clothes was nothing short of perfect, leaving them fresh and immaculate.",
+      name: "Haider Ali",
+      location: "Islamabad, Pakistan"
     }
   ];
 
@@ -39,8 +39,8 @@ export default function Testimonials() {
             <span className="text-blue-400">say about us</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit
-            phasellus mollis sit aliquam sit nullam neque ultrices.
+            Hear what our customers have to say about their experience with our self-service laundromat.
+            Real feedback from real people who've experienced our services firsthand.
           </p>
         </div>
 

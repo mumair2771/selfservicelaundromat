@@ -3,27 +3,32 @@ import { Cloud, Truck, Shirt } from 'lucide-react';
 
 export default function HowItWorks() {
   const stats = [
-    { number: "547+", label: "Laundry Done" },
-    { number: "324+", label: "Clothes Cleaned" },
-    { number: "145+", label: "Daily Washes" },
-    { number: "4.9+", label: "Years Experience" },
+    { number: "9000+", label: "Items Cleaned" },
+    { number: "2000+", label: "Happy Customers" },
+    { number: "4+", label: "Years of Excellence" },
+    { number: "99%", label: "Customer Satisfaction" },
   ];
 
   const features = [
     {
       icon: <Cloud className="w-8 h-8 text-blue-400" />,
-      title: "1. Prepare all your clothes",
-      desc: "Tellus dui dictumst laoreet netus consectetur blandit volutpat nunc. Gravida volutpat pharetra sem neque.",
+      title: "1. Bring your clothes",
+      desc: "Drop them off at our laundromat or send them through a rider, whatever's easiest for you.",
     },
     {
       icon: <Truck className="w-8 h-8 text-blue-400" />,
-      title: "2. We'll pick up your clothes",
-      desc: "Volutpat convallis vestibulum odio arcu tempor, elit ultrices. Non lorem aenean posuere sed netus purus.",
+      title: "2. Let the machines do the magic",
+      desc: "Our high-tech automated washers and dryers, combined with premium detergents, give your clothes a deep clean and gentle care.",
     },
     {
       icon: <Shirt className="w-8 h-8 text-blue-400" />,
-      title: "3. Have them back the next day",
-      desc: "Aenean dolor blandit morbi nec felis felis lacus. Dapibus neque, aliquet amet, tortor imperdiet. Nulla eu mauris.",
+      title: "3. Pick them up hassle-free",
+      desc: "In just one hour, your laundry is fresh, dry, and ready to wear, no waiting for days.",
+    },
+    {
+      icon: <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" /><line x1="2" y1="10" x2="22" y2="10" /></svg>,
+      title: "4. Pay your way",
+      desc: "Cash or online transfer, whatever works for you. No worries, no complications.",
     },
   ];
 
@@ -60,10 +65,9 @@ export default function HowItWorks() {
             {/* Header */}
             <div className="mb-12">
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4 leading-tight">
-                We offer you high-quality{' '}
-                <span className="text-blue-500">laundry pickup</span>
-                {' '}&{' '}
-                <span className="text-blue-500">delivery</span> services
+                How our <span className="text-blue-500">self-service</span>{' '}
+                laundromat{' '}
+                <span className="text-blue-500">works</span>
               </h1>
             </div>
 

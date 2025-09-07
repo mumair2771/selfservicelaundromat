@@ -3,6 +3,7 @@ import HowItWorks from "@/components/howitworks";
 import ScrollingBanner from "@/components/scrollingbanner";
 import Services from "@/components/services";
 import Testimonials from "@/components/testimonials";
+import OurStory from "@/components/ourstory";
 import FAQ from "@/components/faq";
 import Gallery from "@/components/gallery";
 import Footer from "@/components/footer";
@@ -15,6 +16,7 @@ const page = () => {
       <Services />
       <HowItWorks />
       <Testimonials />
+      <OurStory />
       <FAQ />
       <Gallery />
       <Footer />

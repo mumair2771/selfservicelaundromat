@@ -1,6 +1,6 @@
 // components/Hero.js
 import Image from "next/image";
-import { Clock, Star } from "lucide-react";
+import { Clock, Star, Award, Sparkles, ThumbsUp, Shirt } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -16,9 +16,9 @@ export default function Hero() {
             Spin Perfection
           </h1>
           <p className="mt-6 text-[#26415E] max-w-2xl mx-auto text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-            exercitation ullamco.
+            Professional laundry services that fit your schedule. Drop off dirty, pick up perfect every single time. 
+            We know life gets messy, but your clothes don't have to stay that way. Our passionate team treats every 
+            garment with premium care, giving you back precious hours to spend on what truly matters.
           </p>
           <button className="mt-8 px-8 py-3 bg-[#0D1E4C] text-white rounded-[50px] hover:bg-[#26415E] transition text-lg font-semibold">
             Contact Us
@@ -26,16 +26,39 @@ export default function Hero() {
         </div>
 
         {/* Main content with image and cards */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 relative">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 relative">
           {/* Left side cards */}
           <div className="flex flex-col gap-6 z-10 lg:mr-[-30px]">
-            {/* Blue card with clock */}
-            <div className="bg-[#4A7AFF] text-white p-6 rounded-2xl shadow-lg max-w-xs">
-              <div className="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center mb-3">
-                <Clock className="w-6 h-6" />
+            {/* Card 1: Pakistan's First Self Service Laundromat - positioned more to the right */}
+            <div className="bg-[#4A7AFF] text-white p-5 rounded-2xl shadow-lg max-w-xs ml-8 lg:ml-12">
+              <div className="flex items-center">
+                <div className="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center">
+                  <Award className="w-6 h-6" />
+                </div>
+                <div className="ml-4 flex-1 mr-6">
+                  <h3 className="text-lg font-bold">Pakistan's First</h3>
+                  <p className="text-sm">Self Service Laundromat</p>
+                </div>
+                <div className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center">
+                  <span className="text-xs font-bold">1</span>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold">Only One Hours</h3>
-              <p className="text-sm">Express Laundry Service</p>
+            </div>
+            
+            {/* Card 2: Dry to Dry in 1 Hour */}
+            <div className="bg-[#4A7AFF] text-white p-5 rounded-2xl shadow-lg max-w-xs">
+              <div className="flex items-center">
+                <div className="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <div className="ml-4 flex-1 mr-6">
+                  <h3 className="text-lg font-bold">Dry to Dry</h3>
+                  <p className="text-sm">in 1 Hour</p>
+                </div>
+                <div className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center">
+                  <span className="text-xs font-bold">2</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -52,36 +75,52 @@ export default function Hero() {
 
           {/* Right side cards */}
           <div className="flex flex-col gap-6 z-10 lg:ml-[-30px]">
-            {/* Rating card */}
-            <div className="bg-white p-4 rounded-2xl shadow-lg" style={{ width: '280px' }}>
-              <div className="rounded-lg overflow-hidden mb-3">
-                <Image
-                  src="/hero/rating.jpg" 
-                  alt="Laundry Service"
-                  width={280}
-                  height={140}
-                  className="object-cover"
-                />
-              </div>
+            {/* Card 3: Hassle Free Experience - positioned more to the left */}
+            <div className="bg-[#4A7AFF] text-white p-5 rounded-2xl shadow-lg max-w-xs mr-8 lg:mr-12">
               <div className="flex items-center">
-                <div className="flex text-[#FFC107]">
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current" />
-                  <Star className="w-4 h-4 fill-current stroke-current" />
+                <div className="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center">
+                  <ThumbsUp className="w-6 h-6" />
                 </div>
-                <span className="ml-2 text-sm font-medium">(4.9/5)</span>
+                <div className="ml-4 flex-1 mr-6">
+                  <h3 className="text-lg font-bold">Hassle Free</h3>
+                  <p className="text-sm">Experience</p>
+                </div>
+                <div className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center">
+                  <span className="text-xs font-bold">3</span>
+                </div>
               </div>
             </div>
             
-            {/* Blue counter card */}
-            <div className="bg-[#4A7AFF] text-white p-6 rounded-2xl shadow-lg max-w-xs">
-              <div className="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+            {/* Card 4: Premium Care for Every Fabric */}
+            <div className="bg-[#4A7AFF] text-white p-5 rounded-2xl shadow-lg max-w-xs">
+              <div className="flex items-center">
+                <div className="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center">
+                  <Shirt className="w-6 h-6" />
+                </div>
+                <div className="ml-4 flex-1 mr-6">
+                  <h3 className="text-lg font-bold">Premium Care</h3>
+                  <p className="text-sm">for Every Fabric</p>
+                </div>
+                <div className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center">
+                  <span className="text-xs font-bold">4</span>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold">100K+</h3>
-              <p className="text-sm">Cloths Spinned to Perfection</p>
+            </div>
+            
+            {/* Card 5: 4.9★ Rated on Google - positioned even more to the left */}
+            <div className="bg-[#4A7AFF] text-white p-5 rounded-2xl shadow-lg max-w-xs mr-12 lg:mr-20">
+              <div className="flex items-center">
+                <div className="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center">
+                  <Star className="w-6 h-6" />
+                </div>
+                <div className="ml-4 flex-1 mr-6">
+                  <h3 className="text-lg font-bold">4.9★ Rated</h3>
+                  <p className="text-sm">on Google</p>
+                </div>
+                <div className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center">
+                  <span className="text-xs font-bold">5</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

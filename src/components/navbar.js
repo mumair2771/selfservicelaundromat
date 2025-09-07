@@ -1,113 +1,162 @@
-"use client";
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import {
-  Phone,
-  Mail,
-  Clock,
-  MapPin,
-  Instagram,
-  Facebook,
-  MessageCircle,
-  Menu,
-  X,
-} from "lucide-react";
+'use client';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const menuRef = useRef(null);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    }
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Control navbar visibility based on scroll direction
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        setVisible(false);
+      } else {
+        // Scrolling up
+        setVisible(true);
+      }
+      
+      // Update scroll position
+      setLastScrollY(currentScrollY);
+    };
+    
+    window.addEventListener('scroll', controlNavbar);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY]);
 
   return (
-    <header className="w-full">
-      {/* Top Banner */}
-      <div className="bg-[#0D1E4C] text-white text-sm py-2 px-8 flex flex-wrap justify-between items-center gap-4">
-        {/* Left side: Phone + Email */}
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <Phone className="w-4 h-4" />
-            <span>(323) 238-0682</span>
+    <div className="relative" ref={menuRef}>
+      <nav className={`fixed w-full z-50 flex justify-center items-center px-4 py-3 transition-transform duration-300 ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
+        <div className="flex justify-between items-center w-full max-w-[1200px] h-[64px] bg-[#0D1E4C] rounded-[64px] px-4">
+          {/* Logo - always visible */}
+          <div className="flex items-center">
+            <Link href="/" className="flex items-center text-[20px] tracking-tighter text-[#F4F3F0] leading-6">
+              <Image 
+                src="/logo.png" 
+                alt="Self Service Laundrymat Logo" 
+                width={42} 
+                height={42} 
+                className="mr-1 rounded-full" 
+              />
+              Self Service Laundrymat
+            </Link>
           </div>
-          <div className="flex items-center gap-2">
-            <Mail className="w-4 h-4" />
-            <span>contact@laundry.com</span>
+
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center space-x-2">
+            <Link 
+              href="/" 
+              className="w-[86px] h-10 flex items-center justify-center text-base tracking-tighter text-[#F4F3F0] font-normal leading-6 rounded-[24px] hover:bg-[#ffffff09] transition-colors"
+            >
+              Home
+            </Link>
+            <Link 
+              href="/about" 
+              className="w-[86px] h-10 flex items-center justify-center text-base tracking-tighter text-[#F4F3F0] font-normal leading-6 rounded-[24px] hover:bg-[#ffffff09] transition-colors"
+            >
+              About
+            </Link>
+            <Link 
+              href="/services" 
+              className="w-[86px] h-10 flex items-center justify-center text-base tracking-tighter text-[#F4F3F0] font-normal leading-6 rounded-[24px] hover:bg-[#ffffff09] transition-colors"
+            >
+              Services
+            </Link>
+            <Link 
+              href="/contact" 
+              className="w-[86px] h-10 flex items-center justify-center text-base tracking-tighter text-[#F4F3F0] font-normal leading-6 rounded-[24px] hover:bg-[#ffffff09] transition-colors"
+            >
+              Contact
+            </Link>
           </div>
-        </div>
-
-        {/* Right side: Time */}
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4" />
-            <span>Mon - Fri: 5:00AM - 8:00PM</span>
+          
+          {/* Desktop Book Now Button */}
+          <div className="hidden md:block">
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center justify-center h-10 px-6 text-base tracking-tighter font-normal leading-6 text-[#171824] bg-[#FAF6E9] rounded-[24px] hover:bg-[#fefefe] transition-colors"
+            >
+              Contact Us
+            </Link>
           </div>
+          
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden flex items-center justify-center h-10 px-4 bg-[#FAF6E9] rounded-[24px] hover:bg-[#fefefe] transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? "Close" : "Menu"}
+          </button>
         </div>
-      </div>
-
-      {/* Main Navbar */}
-      <nav className="bg-white shadow-md py-4 px-10 flex justify-between items-center relative">
-        {/* Logo & Text */}
-        <div className="flex items-center gap-4">
-          <Image src="/logo.png" alt="Logo" width={60} height={60} />
-          <h1 className="font-bold text-xl leading-tight text-[#38A5F4]">
-            Self Service <br /> Laundrymat
-          </h1>
-        </div>
-
-        {/* Desktop Links */}
-        <ul className="hidden md:flex gap-10 font-medium px-6">
-          <li>
-            <Link href="#" className="text-[#0B1B32] hover:text-[#38A5F4]">Home</Link>
-          </li>
-          <li>
-            <Link href="#" className="text-[#0B1B32] hover:text-[#38A5F4]">About</Link>
-          </li>
-          <li>
-            <Link href="#" className="text-[#0B1B32] hover:text-[#38A5F4]">Services</Link>
-          </li>
-          <li>
-            <Link href="#" className="text-[#0B1B32] hover:text-[#38A5F4]">Contact</Link>
-          </li>
-        </ul>
-
-        {/* Social Icons (Desktop) */}
-        <div className="hidden md:flex gap-5 text-xl text-[#38A5F4]">
-          <MessageCircle className="w-6 h-6 cursor-pointer hover:scale-110 transition" />
-          <Instagram className="w-6 h-6 cursor-pointer hover:scale-110 transition" />
-          <Facebook className="w-6 h-6 cursor-pointer hover:scale-110 transition" />
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-2xl text-[#38A5F4]"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <div className="absolute top-full left-0 w-full bg-white shadow-md py-6 flex flex-col items-center gap-6 z-50 md:hidden">
-            <ul className="flex flex-col gap-4 font-medium text-lg">
-              <li>
-                <Link href="#" className="text-[#0B1B32] hover:text-[#38A5F4]">Home</Link>
-              </li>
-              <li>
-                <Link href="#" className="text-[#0B1B32] hover:text-[#38A5F4]">About</Link>
-              </li>
-              <li>
-                <Link href="#" className="text-[#0B1B32] hover:text-[#38A5F4]">Services</Link>
-              </li>
-              <li>
-                <Link href="#" className="text-[#0B1B32] hover:text-[#38A5F4]">Contact</Link>
-              </li>
-            </ul>
-            <div className="flex gap-6 text-2xl text-[#38A5F4]">
-              <MessageCircle className="w-6 h-6 cursor-pointer hover:scale-110 transition" />
-              <Instagram className="w-6 h-6 cursor-pointer hover:scale-110 transition" />
-              <Facebook className="w-6 h-6 cursor-pointer hover:scale-110 transition" />
+      
+        {/* Mobile Menu Dropdown */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-[80px] left-4 right-4 bg-[#0D1E4C] rounded-[24px] p-4 z-40 shadow-lg">
+            <div className="flex flex-col space-y-4">
+              <Link 
+                href="/" 
+                className="w-full h-10 flex items-center justify-center text-base tracking-tighter text-[#F4F3F0] font-normal leading-6 rounded-[24px] hover:bg-[#ffffff09] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link 
+                href="/about" 
+                className="w-full h-10 flex items-center justify-center text-base tracking-tighter text-[#F4F3F0] font-normal leading-6 rounded-[24px] hover:bg-[#ffffff09] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link 
+                href="/services" 
+                className="w-full h-10 flex items-center justify-center text-base tracking-tighter text-[#F4F3F0] font-normal leading-6 rounded-[24px] hover:bg-[#ffffff09] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Services
+              </Link>
+              <Link 
+                href="/contact" 
+                className="w-full h-10 flex items-center justify-center text-base tracking-tighter text-[#F4F3F0] font-normal leading-6 rounded-[24px] hover:bg-[#ffffff09] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
+              </Link>
+              <Link 
+                href="/contact" 
+                className="w-full h-10 flex items-center justify-center text-base tracking-tighter font-normal leading-6 text-[#171824] bg-[#FAF6E9] rounded-[24px] hover:bg-[#fefefe] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact Us
+              </Link>
             </div>
           </div>
         )}
       </nav>
-    </header>
+    </div>
   );
 }
