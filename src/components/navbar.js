@@ -62,7 +62,7 @@ export default function Navbar() {
                 height={42} 
                 className="mr-1 rounded-full" 
               />
-              Self Service Laundrymat
+              Self Service Laundromat
             </Link>
           </div>
 

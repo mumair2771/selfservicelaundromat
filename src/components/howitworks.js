@@ -1,4 +1,6 @@
+"use client"
 import React from 'react';
+
 import { Cloud, Truck, Shirt } from 'lucide-react';
 
 export default function HowItWorks() {
@@ -53,7 +55,7 @@ export default function HowItWorks() {
           <div className="relative">
             <div className="rounded-3xl h-full flex items-center justify-center overflow-hidden">
               <img 
-                src="/bg-1.webp" 
+                src="/bg-1.jpeg" 
                 alt="Laundry service" 
                 className="w-full h-full object-cover rounded-2xl"
               />
