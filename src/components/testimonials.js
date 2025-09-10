@@ -1,5 +1,7 @@
+"use client";
 import React from 'react';
 import { Star } from 'lucide-react';
+import FadeInElement from './FadeInElement';
 
 export default function Testimonials() {
   const testimonials = [
@@ -34,56 +36,60 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-            What our testimonials{' '}
-            <span className="text-blue-400">say about us</span>
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Hear what our customers have to say about their experience with our self-service laundromat.
-            Real feedback from real people who've experienced our services firsthand.
-          </p>
+          <FadeInElement>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+              What our testimonials{' '}
+              <span className="text-blue-400">say about us</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Hear what our customers have to say about their experience with our self-service laundromat.
+              Real feedback from real people who've experienced our services firsthand.
+            </p>
+          </FadeInElement>
         </div>
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              {/* Profile Image */}
-              <div className="flex justify-center mb-6">
-                <div className="w-20 h-20 rounded-full overflow-hidden bg-blue-100 p-1">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover rounded-full"
-                  />
+          {testimonials.map((testimonial, index) => (
+            <FadeInElement key={testimonial.id} delay={index * 0.2} direction="up" distance={40}>
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                {/* Profile Image */}
+                <div className="flex justify-center mb-6">
+                  <div className="w-20 h-20 rounded-full overflow-hidden bg-blue-100 p-1">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                </div>
+
+                {/* Star Rating */}
+                <div className="flex justify-center gap-1 mb-6">
+                  {[...Array(testimonial.rating)].map((_, index) => (
+                    <Star
+                      key={index}
+                      className="w-5 h-5 fill-blue-400 text-blue-400"
+                    />
+                  ))}
+                </div>
+
+                {/* Testimonial Text */}
+                <p className="text-gray-600 text-center mb-6 leading-relaxed">
+                  {testimonial.text}
+                </p>
+
+                {/* Name and Location */}
+                <div className="text-center">
+                  <h4 className="font-bold text-gray-800 mb-1">
+                    {testimonial.name}
+                  </h4>
+                  <p className="text-blue-400 text-sm">
+                    {testimonial.location}
+                  </p>
                 </div>
               </div>
-
-              {/* Star Rating */}
-              <div className="flex justify-center gap-1 mb-6">
-                {[...Array(testimonial.rating)].map((_, index) => (
-                  <Star
-                    key={index}
-                    className="w-5 h-5 fill-blue-400 text-blue-400"
-                  />
-                ))}
-              </div>
-
-              {/* Testimonial Text */}
-              <p className="text-gray-600 text-center mb-6 leading-relaxed">
-                {testimonial.text}
-              </p>
-
-              {/* Name and Location */}
-              <div className="text-center">
-                <h4 className="font-bold text-gray-800 mb-1">
-                  {testimonial.name}
-                </h4>
-                <p className="text-blue-400 text-sm">
-                  {testimonial.location}
-                </p>
-              </div>
-            </div>
+            </FadeInElement>
           ))}
         </div>
       </div>

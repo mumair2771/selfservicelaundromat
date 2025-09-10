@@ -3,12 +3,12 @@ import Image from "next/image";
 
 export default function Gallery() {
   const galleryItems = [
-    { image: "/gallery/1.jpeg", alt: "Laundry Facility" },
-    { image: "/gallery/6.jpeg", alt: "Laundry Equipment" },
-    { image: "/gallery/4.jpeg", alt: "Laundry Service" },
-    { image: "/gallery/3.jpeg", alt: "Laundry Process" },
+    { image: "/gallery/10.jpg", alt: "Laundry Facility" },
+    { image: "/gallery/7.jpg", alt: "Laundry Equipment" },
+    { image: "/gallery/9.jpg", alt: "Laundry Service" },
+    { image: "/gallery/8.jpg", alt: "Laundry Process" },
     { image: "/gallery/5.jpeg", alt: "Laundry Interior" },
-    { image: "/gallery/2.jpeg", alt: "Laundry Results" },
+    { image: "/gallery/11.jpg", alt: "Laundry Results" },
   ];
 
   return (
@@ -35,7 +35,7 @@ export default function Gallery() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#38A5F4]/50 to-transparent top-[75%] h-1/4"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#000]/50 to-transparent top-[75%] h-1/4"></div>
           </div>
           
           <div className="col-span-12 md:col-span-6 relative h-64 overflow-hidden rounded-lg">
@@ -45,7 +45,7 @@ export default function Gallery() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#38A5F4]/50 to-transparent top-[75%] h-1/4"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#000]/50 to-transparent top-[75%] h-1/4"></div>
           </div>
           
           <div className="col-span-12 md:col-span-3 relative h-64 overflow-hidden rounded-lg">
@@ -55,7 +55,7 @@ export default function Gallery() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#38A5F4]/50 to-transparent top-[75%] h-1/4"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#000]/50 to-transparent top-[75%] h-1/4"></div>
           </div>
           
           {/* Second row */}
@@ -66,7 +66,7 @@ export default function Gallery() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#38A5F4]/50 to-transparent top-[75%] h-1/4"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#000]/50 to-transparent top-[75%] h-1/4"></div>
           </div>
           
           <div className="col-span-12 md:col-span-3 relative h-64 overflow-hidden rounded-lg">
@@ -76,7 +76,7 @@ export default function Gallery() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#38A5F4]/50 to-transparent top-[75%] h-1/4"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#000]/50 to-transparent top-[75%] h-1/4"></div>
           </div>
           
           <div className="col-span-12 md:col-span-4 relative h-64 overflow-hidden rounded-lg">
@@ -86,7 +86,7 @@ export default function Gallery() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#38A5F4]/50 to-transparent top-[75%] h-1/4"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#000]/50 to-transparent top-[75%] h-1/4"></div>
           </div>
         </div>
       </div>

@@ -11,8 +11,8 @@ const WhatsAppChat = () => {
   };
 
   const openWhatsApp = () => {
-    // Replace with your actual WhatsApp number
-    const phoneNumber = "+1234567890";
+    // WhatsApp number
+    const phoneNumber = "+923124205243";
     const message = "Hi, I need help!";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');

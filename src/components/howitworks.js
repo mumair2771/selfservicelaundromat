@@ -1,11 +1,27 @@
 "use client"
-import React from 'react';
-
+import { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Cloud, Truck, Shirt } from 'lucide-react';
+import FadeInElement from './FadeInElement';
 
 export default function HowItWorks() {
+  // Register ScrollTrigger plugin
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  }, []);
+  
+  // Refs for counter elements
+  const counterSectionRef = useRef(null);
+  const counterRefs = useRef([]);
+  
+  // State to store the displayed counter values
+  const [counterValues, setCounterValues] = useState([
+    "0", "0", "0", "0%"
+  ]);
+  // Original target values for counters
   const stats = [
-    { number: "9000+", label: "Items Cleaned" },
+    { number: "9000+", label: "Items Cleaned" },  
     { number: "2000+", label: "Happy Customers" },
     { number: "4+", label: "Years of Excellence" },
     { number: "99%", label: "Customer Satisfaction" },
@@ -34,14 +50,75 @@ export default function HowItWorks() {
     },
   ];
 
+  // Counter animation function
+  const animateCounters = () => {
+    // Parse the target values
+    const targetValues = stats.map(stat => {
+      const value = stat.number.replace(/[^0-9]/g, '');
+      return parseInt(value, 10);
+    });
+    
+    // Create animations for each counter
+    counterRefs.current.forEach((counter, index) => {
+      let startValue = 0;
+      let endValue = targetValues[index];
+      let duration = 2.5; // Animation duration in seconds
+      let suffix = stats[index].number.includes('%') ? '%' : '+';
+      
+      // Create a proxy object for GSAP to animate
+      let obj = { value: startValue };
+      
+      // Create the tween
+      gsap.to(obj, {
+        value: endValue,
+        duration: duration,
+        ease: "power2.out",
+        onUpdate: () => {
+          // Update the state with the current value
+          setCounterValues(prev => {
+            const newValues = [...prev];
+            newValues[index] = Math.round(obj.value) + suffix;
+            return newValues;
+          });
+        }
+      });
+    });
+  };
+  
+  // Set up ScrollTrigger
+  useEffect(() => {
+    if (!counterSectionRef.current) return;
+    
+    // Create the scroll trigger
+    const trigger = ScrollTrigger.create({
+      trigger: counterSectionRef.current,
+      start: "top 80%", // Trigger when the top of the section hits 80% from the top of the viewport
+      onEnter: () => animateCounters(),
+      once: true // Only trigger once
+    });
+    
+    // Cleanup
+    return () => {
+      if (trigger) trigger.kill();
+    };
+  }, []);
+  
   return (
     <div className="relative bg-white py-32">
       {/* Counter Section - Positioned Absolutely */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl px-4">
+      <div 
+        ref={counterSectionRef}
+        className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl px-4"
+      >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((item, i) => (
             <div key={i} className="bg-[#0D1E4C] rounded-2xl shadow-lg p-6 text-center text-white">
-              <p className="text-2xl md:text-3xl font-bold text-white">{item.number}</p>
+              <p 
+                ref={el => counterRefs.current[i] = el}
+                className="text-2xl md:text-3xl font-bold text-white"
+              >
+                {counterValues[i]}
+              </p>
               <p className="text-white text-sm md:text-base mt-1">{item.label}</p>
             </div>
           ))}
@@ -66,29 +143,33 @@ export default function HowItWorks() {
           <div className="lg:pl-8">
             {/* Header */}
             <div className="mb-12">
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4 leading-tight">
-                How our <span className="text-blue-500">self-service</span>{' '}
-                laundromat{' '}
-                <span className="text-blue-500">works</span>
-              </h1>
+              <FadeInElement>
+                <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4 leading-tight">
+                  How our <span className="text-blue-500">self-service</span>{' '}
+                  laundromat{' '}
+                  <span className="text-blue-500">works</span>
+                </h1>
+              </FadeInElement>
             </div>
 
             {/* Features List */}
             <div className="space-y-8">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center border border-blue-100">
-                    {feature.icon}
+                <FadeInElement key={index} delay={index * 0.2} distance={30}>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center border border-blue-100">
+                      {feature.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-800 mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {feature.desc}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {feature.desc}
-                    </p>
-                  </div>
-                </div>
+                </FadeInElement>
               ))}
             </div>
           </div>

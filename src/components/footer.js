@@ -62,13 +62,13 @@ const footer = () => {
             <p className="text-white/90 mb-4 md:mb-0">Copyright © 2025 Self Service Laundromat. All Rights Reserved</p>
             
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#38A5F4] hover:bg-white/80 transition-colors">
+              <a href="https://www.facebook.com/share/1ARXNi5Dhf/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#38A5F4] hover:bg-white/80 transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#38A5F4] hover:bg-white/80 transition-colors">
+              <a href="https://www.instagram.com/self_service_laundromat?igsh=MTIzMHl3bXd5dW5oZw==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#38A5F4] hover:bg-white/80 transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#38A5F4] hover:bg-white/80 transition-colors">
+              <a href="https://wa.me/923124205243" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#38A5F4] hover:bg-white/80 transition-colors">
                 <MessageCircle size={20} />
               </a>
             </div>

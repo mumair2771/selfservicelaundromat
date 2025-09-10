@@ -70,7 +70,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section id="contact" className="py-20 bg-[#F6FAFF]">
       <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32">
         {/* Header section */}
         <div className="text-center mb-16">
